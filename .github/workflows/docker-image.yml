@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: echo $TOKEN | docker login ghcr.io -u mickeydarrenlau --password-stdin && docker build . --file Dockerfile --tag ghcr.io/mickeydarrenlau/tailscale-docker:latest && docker push ghcr.io/mickeydarrenlau/tailscale-docker:latest
+      run:  docker login ghcr.io -u mickeydarrenlau -p $TOKEN && docker build . --file Dockerfile --tag ghcr.io/mickeydarrenlau/tailscale-docker:latest && docker push ghcr.io/mickeydarrenlau/tailscale-docker:latest
       env:
         TOKEN: ${{ secrets.GH_PAT }}
