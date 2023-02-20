@@ -1,1 +1,1 @@
-nohup
+tail -f /dev/null
